@@ -26,12 +26,12 @@ public class WindowHandleFinder{
     }
 
     private void findCanvasClassName(HWND parentHandle) {
-        Map<HWND, String> handlesAndClasses = new HashMap<>();
         WinUser.WNDENUMPROC proc = (hwnd, pointer) -> {
-            char[] className = new char[40];
-            user32.GetClassName(hwnd, className, 40);
+            char[] className = new char[50];
+            user32.GetClassName(hwnd, className, 50);
             if(String.valueOf(className).startsWith("Afx:000")){
             	canvasHandle = hwnd;
+            	return false;
             }
             return true;
         };
