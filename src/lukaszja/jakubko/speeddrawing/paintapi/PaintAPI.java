@@ -1,4 +1,4 @@
-package lukaszja.jakubko.speeddrawing;
+package lukaszja.jakubko.speeddrawing.paintapi;
 
 public interface PaintAPI {
 

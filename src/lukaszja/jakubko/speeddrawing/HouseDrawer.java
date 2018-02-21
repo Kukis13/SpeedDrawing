@@ -1,5 +1,7 @@
 package lukaszja.jakubko.speeddrawing;
 
+import lukaszja.jakubko.speeddrawing.paintapi.PaintAPI;
+
 public class HouseDrawer {
 
 	private PaintAPI api;
