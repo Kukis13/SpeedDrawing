@@ -18,11 +18,15 @@ public class PaintAPIImpl implements PaintAPI {
 
 	@Override
 	public void clickOnCanvas(int x, int y) {
+		
 		Integer lparam = ((y << 16) | (x & 0xFFFF));
 
+		
 		user32.SendMessage(canvasHandle, 0x201, 0, lparam);
 		user32.SendMessage(canvasHandle, 0x202, 0, lparam);
 
-		sleep();
+		//sleep();
 	}
+	
+	
 }
