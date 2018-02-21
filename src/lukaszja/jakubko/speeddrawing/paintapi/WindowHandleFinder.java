@@ -30,13 +30,13 @@ public class WindowHandleFinder{
         WinUser.WNDENUMPROC proc = (hwnd, pointer) -> {
             char[] className = new char[40];
             user32.GetClassName(hwnd, className, 40);
-            handlesAndClasses.put(hwnd, String.valueOf(className));
+            if(String.valueOf(className).startsWith("Afx:000")){
+            	canvasHandle = hwnd;
+            }
             return true;
         };
 
         user32.EnumChildWindows(parentHandle, proc, Pointer.NULL);
-        canvasHandle = handlesAndClasses.entrySet().stream().max(
-                (str1, str2) -> str1.getValue().length() < str2.getValue().length() ? 1 : -1).get().getKey();
     }
 
     public HWND getMainHandle() {
