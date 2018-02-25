@@ -46,4 +46,5 @@ public class WindowHandleFinder{
     public HWND getCanvasHandle() {
         return canvasHandle;
     }
+    
 }
